@@ -1,36 +1,52 @@
-Setting OCP 4.1 using KVM 
+Setting OCP 4.1 using KVM
 =========================
 
-This Guide will get you up and running using KVM `libvirt`. This setup
-should work for both RedHat or Centos OS 7.X. The ordered bare-metal IBM
-Cloud will act as KVM Host.
+This Guide will get you up and running using KVM `libvirt`. This setup should
+work for both RedHat or Centos OS 7.X. You will need to deploy a bare-metal IBM
+Cloud to act as the KVM Host. For this deployment we used a Bare Metal server
+with 48 CPU, 256 GB RAM, and 1 TB storage. Your mileage may vary based on your
+specific needs.
 
-All the OpenShift Guest VM will be deployed using ansible scripts.
+All the OpenShift Guest VMs will be deployed using ansible scripts.
 
 > **NOTE:**
 >
-> Before you begin, understanding your IP address is very important. The
-> IP addresses in the following table were obtained from IC4G. They are
-> listed here for illustration purpose only. Each VM node takes up one
-> IP address. The recommendation minimum of 16 portable IP addresses is
-> determined by: 1 helper node + 1 boot node + 3 control-plane nodes + 3
-> worker nodes = 8 nodes IC4G reserves 4 IP addresses out of every
-> portable IP subnet. Therefore 8 + 4 = 12. The extra four IP addresses
-> are for having a cushion. This installation provisioned the vCenter on
-> the same portable IP subnet, thus a total of 9 IP addresses are used.
+> Before you begin, understanding your IP addresses is very important. The IP
+> addresses used in this process and the configuration files came from our IC4G
+> environment. They are used here for illustration purpose only. Each VM node
+> takes up one IP address. The recommendation minimum of 16 portable IP
+> addresses is determined by: 1 helper node + 1 boot node + 3 control-plane
+> nodes + 3 worker nodes = 8 nodes IC4G reserves 4 IP addresses out of every
+> portable IP subnet. Therefore 8 + 4 = 12. The extra four IP addresses are
+> available for additional worker nodes. You should plan your ip address space
+> accordingly.
 
 Architecture Diagram
 --------------------
 
 ![OCP KVM](images/ocp_kvm_architecture.png)
 
+Network requirements
+--------------------
+
+In this environment, we used the Vyatta Firewall available in the IBM Cloud for
+Government. This allows us the flexibility to setup various Private and Public
+VLANs as needed for a more complex environment. The Vyatta is not required and
+its  setup is not addressed here. For a simpler installation, it is just as
+acceptable  to use establish a public port on the Load Balancer node and manage
+the firewall settings on that node.
+
 Hardware requirements
 ---------------------
 
 | Node Name       | vCPU   | Mem  | HDD | Role
 | ------          | ------ |----  | --- | ------ |
+<<<<<<< HEAD
+| Helper Node | 4  | 16 | 150 | LB/DNS/Proxy/DHCP/OCP Installer|
+=======
 | Bare metal Server | 48  | 256 | 1 TB |  Centos Server|
 | Helper Node | 4  | 16 | 150 | DNS/Proxy/DHCP/OCP Installer|
+>>>>>>> ed141eb8e90f51bf6d9e635813538de763732df3
 | Bootstrap | 4  | 16 | 150 | Bootstrap OCP |
 | Master0  |  4 | 16 | 150 | Master OCP |
 | Master1  |  4 | 16 | 150 | Master OCP |
@@ -61,7 +77,7 @@ KVM GUI tool, install Gnome desktop and VNC.
     ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
     reboot
 
-Log back in to setup
+Log back in to the Master node to setup VNC using the following commands:
 
     vncserver
     vncpasswd
@@ -203,17 +219,17 @@ If there is a need to expose the registry, run the following command
 
 Execute the next command to finish the install process:
 
-    openshift-install wait-for install-complete 
+    openshift-install wait-for install-complete
 
-When the installation is completed, messages similar to the following 
+When the installation is completed, messages similar to the following
 will be displayed:
 
-    INFO Waiting up to 30m0s for the cluster at https://api.test.os.fisc.lab:6443 to initialize... 
-    INFO Waiting up to 10m0s for the openshift-console route to be created... 
+    INFO Waiting up to 30m0s for the cluster at https://api.test.os.fisc.lab:6443 to initialize...
+    INFO Waiting up to 10m0s for the openshift-console route to be created...
     INFO Install complete!                            
-    INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/opt/ocp4/auth/kubeconfig' 
-    INFO Access the OpenShift web-console here: https://console-openshift-console.apps.test.os.fisc.lab 
-    INFO Login to the console with user: kubeadmin, password: ###-????-@@@@-**** 
+    INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/opt/ocp4/auth/kubeconfig'
+    INFO Access the OpenShift web-console here: https://console-openshift-console.apps.test.os.fisc.lab
+    INFO Login to the console with user: kubeadmin, password: ###-????-@@@@-****
 
     Make note of the OpenShift web-console URL, login user id and password.
 
