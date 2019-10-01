@@ -33,8 +33,8 @@ In this environment, we used the Vyatta Firewall available in the IBM Cloud for
 Government. This allows us the flexibility to setup various Private and Public
 VLANs as needed for a more complex environment. The Vyatta is not required and
 its  setup is not addressed here. For a simpler installation, it is just as
-acceptable  to use establish a public port on the Load Balancer node and manage
-the firewall settings on that node.
+acceptable to establish a public port on the Load Balancer node and manage the
+firewall settings on that node.
 
 Hardware requirements
 ---------------------
