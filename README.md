@@ -3,7 +3,7 @@ Setting OCP 4.1 using KVM
 
 This Guide will get you up and running using KVM `libvirt`. This setup should
 work for both RedHat or Centos OS 7.X. You will need to deploy a bare-metal IBM
-Cloud to act as the KVM Host. For this deployment we used a Bare Metal server
+Cloud to act as the KVM Host. For this deployment we setup a CentOS Bare Metal server
 with 48 CPU, 256 GB RAM, and 1 TB storage. Your mileage may vary based on your
 specific needs.
 
@@ -13,8 +13,9 @@ All the OpenShift Guest VMs will be deployed using ansible scripts.
 >
 > Before you begin, understanding your IP addresses is very important. The IP
 > addresses used in this process and the configuration files came from our IC4G
-> environment. They are used here for illustration purpose only. Each VM node
-> takes up one IP address. The recommendation minimum of 16 portable IP
+> environment. They are used here for illustration purpose only. When you order
+> your KVM Host server, you will also need to order a minium of 16 portable IP
+> addresses. Each VM node takes up one IP address. The recommended minimum of 16 portable IP
 > addresses is determined by: 1 helper node + 1 boot node + 3 control-plane
 > nodes + 3 worker nodes = 8 nodes IC4G reserves 4 IP addresses out of every
 > portable IP subnet. Therefore 8 + 4 = 12. The extra four IP addresses are
@@ -238,8 +239,9 @@ On KVM Host run the following commands:
 
 > **HINT** change the <HELPER_NODE_IP> address in above command to the helper node
 > IP address
->
-> Add following lines to your /etc/hosts files on from where you plan to
-> access the Opensshift URL
->
-> <HOST_KVM_IP> console-openshift-console.apps.<base_domain_prefix>.<base_domain>  oauth-openshift.apps.<base_domain_prefix>.<base_domain>
+
+Add following line to your /etc/hosts files on the server from where will allow access to your OpenShift URL:
+
+```
+<HOST_KVM_IP> console-openshift-console.apps.<base_domain_prefix>.<base_domain>  oauth-openshift.apps.<base_domain_prefix>.<base_domain>
+```
