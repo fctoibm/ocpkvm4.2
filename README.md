@@ -237,8 +237,7 @@ On KVM Host run the following commands:
     iptables -I FORWARD -o openshift4 -d  <HELPER_NODE_IP> -j ACCEPT
     iptables -t nat -I PREROUTING -p tcp --dport 443 -j DNAT --to <HELPER_NODE_IP>:443
 
-> **HINT** change the <HELPER_NODE_IP> address in above command to the helper node
-> IP address
+> Where, <HELPER_NODE_IP> is the IP address of the helper node
 
 Add following line to your /etc/hosts files on the server from where will allow access to your OpenShift URL:
 
