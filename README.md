@@ -27,7 +27,17 @@ Architecture Diagram
 Hardware requirements
 ---------------------
 
-![hardware](images/hardware.png)
+| Node Name       | vCPU   | Mem  | HDD | Role
+| ------          | ------ |----  | --- | ------ |
+| Helper Node | 4  | 16 | 150 | DNS/Proxy/DHCP/OCP Installer|
+| Bootstrap | 4  | 16 | 150 | Bootstrap OCP |
+| Master0  |  4 | 16 | 150 | Master OCP |
+| Master1  |  4 | 16 | 150 | Master OCP |
+| Master2  |  4 | 16 | 150 | Master OCP |
+| Worker0 | 4 | 16 | 150 | Compute OCP |
+| Worker1 | 4 | 16 | 150 | Compute OCP |
+| Worker2 | 4 | 16 | 150 | Compute OCP |
+
 
 Setup KVM Host
 --------------
