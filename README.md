@@ -22,7 +22,7 @@ All the OpenShift Guest VM will be deployed using ansible scripts.
 Architecture Diagram
 --------------------
 
-coming soon!!!!!!!!!!!!!!!!!
+![OCP KVM](images/ocp_kvm_architecture.png)
 
 Hardware requirements
 ---------------------
