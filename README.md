@@ -242,6 +242,4 @@ On KVM Host run the following commands:
 
 Add following line to your /etc/hosts files on the server from where will allow access to your OpenShift URL:
 
-```
-<HOST_KVM_IP> console-openshift-console.apps.<base_domain_prefix>.<base_domain>  oauth-openshift.apps.<base_domain_prefix>.<base_domain>
-```
+> <HOST_KVM_IP> console-openshift-console.apps.<base_domain_prefix>.<base_domain>  oauth-openshift.apps.<base_domain_prefix>.<base_domain>
