@@ -29,6 +29,7 @@ Hardware requirements
 
 | Node Name       | vCPU   | Mem  | HDD | Role
 | ------          | ------ |----  | --- | ------ |
+| Bare metal Server | 48  | 256 | 1 TB |  Centos Server|
 | Helper Node | 4  | 16 | 150 | DNS/Proxy/DHCP/OCP Installer|
 | Bootstrap | 4  | 16 | 150 | Bootstrap OCP |
 | Master0  |  4 | 16 | 150 | Master OCP |
