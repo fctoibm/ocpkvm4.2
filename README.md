@@ -227,7 +227,7 @@ will be displayed:
     INFO Access the OpenShift web-console here: https://console-openshift-console.apps.test.os.fisc.lab
     INFO Login to the console with user: kubeadmin, password: ###-????-@@@@-****
 
-    Make note of the OpenShift web-console URL, login user id and password.
+> Make note of the OpenShift web-console URL, login user id and password.
 
 Update IP tables on KVM Host to access OpenShift URL
 ----------------------------------------------------
