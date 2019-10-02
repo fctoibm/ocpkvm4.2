@@ -73,7 +73,7 @@ KVM GUI tool, install Gnome desktop and VNC.
     ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
     reboot
 
-Log back in to the Master node to setup VNC using the following commands:
+Log back in to the KVM host to setup VNC using the following commands:
 
     vncserver
     vncpasswd
