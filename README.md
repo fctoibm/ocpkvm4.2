@@ -1,4 +1,4 @@
-Setting OCP 4.1 using KVM
+Setting OCP 4.2 using KVM
 =========================
 
 This Guide will get you up and running using KVM `libvirt`. This setup should
@@ -86,8 +86,8 @@ Prepare the Host KVM
 Login to the Host KVM as root.
 
     cd /opt
-    git clone https://github.com/fctoibm/ocpkvm.git
-    cd /opt/ocpkvm
+    git clone https://github.com/fctoibm/ocpkvm4.2.git
+    cd /opt/ocpkvm4.2
 
 Edit the [vars.yaml](./vars.yaml) file with the IP addresss that will be
 assigned to the masters/workers/boostrap. The IP addresses need to be
