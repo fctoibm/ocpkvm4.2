@@ -192,10 +192,10 @@ check that the bootstrap node is finished with installation.
 The following messages will be displayed when the bootstrap completes
 installation:
 
-`DEBUG OpenShift Installer v4.1.0-201905212232-dirty `\
-`DEBUG Built from commit 71d8978039726046929729ad15302973e3da18ce `\
+`DEBUG OpenShift Installer v4.2.0 `\
+`DEBUG Built from commit 90ccb37ac1f85ae811c50a29f9bb7e779c5045fb `\
 `INFO Waiting up to 30m``0s for the Kubernetes API at https://api.ocp4.example.com:6443... `\
-`INFO API v1.13.4+838b4fa up                       `\
+`INFO API v1.14.6+2e5ed54  up                       `\
 `INFO Waiting up to 30m0s for bootstrapping to complete... `\
 `DEBUG Bootstrap status: complete                   `\
 `INFO It is now safe to remo``ve the bootstrap resources`
