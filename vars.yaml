@@ -48,6 +48,22 @@ worker_ip:
    1: "100.106.12.186"
    2: "100.106.12.187"
 
+##################################################################
+# The following are variables that are parameterized for OCP v4.2
+##################################################################
+
+# latest openshift build 
+openshift_build: "4.2.0"
+
+# RHCOS build and url
+v_rhcos_bios: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.2/latest/rhcos-4.2.0-x86_64-metal-bios.raw.gz"
+v_rhcos_initramfs: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.2/latest/rhcos-4.2.0-x86_64-installer-initramfs.img"
+v_rhcos_install_kernel: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.2/latest/rhcos-4.2.0-x86_64-installer-kernel"
+
+# OCP Installer
+v_ocp_client: "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-{{openshift_build}}.tar.gz"
+v_ocp_installer: "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux-{{openshift_build}}.tar.gz"
+
 
 
 
