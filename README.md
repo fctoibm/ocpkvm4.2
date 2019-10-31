@@ -71,9 +71,14 @@ line tool is virt-install and the GUI tool is virt-manager. To use the
 KVM GUI tool, install Gnome desktop and VNC.
 
     yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
+    
+> *** Hint *** For RedHat, do "yum groupinstall "Server with GUI" to install the GNOME desktop.
+    
     yum install tigervnc*
     ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
     reboot
+
+
 
 Log back in to the KVM host to setup VNC using the following commands:
 
