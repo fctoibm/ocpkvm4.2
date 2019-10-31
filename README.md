@@ -72,7 +72,7 @@ KVM GUI tool, install Gnome desktop and VNC.
 
     yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
     
-> *** Hint *** For RedHat, do "yum groupinstall "Server with GUI" to install the GNOME desktop.
+> *** Hint *** For RedHat, to install GNOME desktop do: yum groupinstall "Server with GUI"
     
     yum install tigervnc*
     ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
