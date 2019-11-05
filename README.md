@@ -211,12 +211,12 @@ ssh to the helper node from the KVM host
     cd /opt/ocp4
     export KUBECONFIG=/opt/ocp4/auth/kubeconfig
 
-To set up storage for the registry, execute the next command.  (To use PVs, do the setup describes
+You must configure storage for the image registry Operator. For non-production clusters, you can set the image registry to an empty directory. Execute the following command to set the registry to an empty directory. (To use PVs, do the setup describes
 [here](https://docs.openshift.com/container-platform/4.1/installing/installing_bare_metal/installing-bare-metal.html#registry-configuring-storage-baremetal_installing-bare-metal))
 
     oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch '{"spec":{"storage":{"emptyDir":{}}}}'
 
-If there is a need to expose the registry, run the following command
+If you have a need to gain external access to the image registry or to log in to the registry from outside the cluster, run the following command to expose the registry:
 
     oc patch configs.imageregistry.operator.openshift.io/cluster --type merge -p '{"spec":{"defaultRoute":true}}'
 
