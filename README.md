@@ -57,11 +57,11 @@ Setup KVM Host
 To run ansible scripts, the ansible rpm and python library need to be installed. Use the
 following commands:
 ```
-    sudo yum update
-    sudo yum install ansible
-    sudo yum install git
-    sudo yum install python-pip gcc make openssl-devel python-devel
-    sudo pip install --upgrade ansible
+sudo yum update
+sudo yum install ansible
+sudo yum install git
+sudo yum install python-pip gcc make openssl-devel python-devel
+sudo pip install --upgrade ansible
 ```
 > **NOTE:** For RedHat if you get error message that said "No package ansible available" when you execute the command "sudo yum install ansible",  execute "sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" and then execute "sudo yum install ansible".
 
@@ -69,27 +69,27 @@ KVM will be used to create and manage virtual machines. The KVM command
 line tool is virt-install and the GUI tool is virt-manager. To use the
 KVM GUI tool, install Gnome desktop and VNC.
 ```
-    yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
+yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
 ```    
 > **NOTE:** For RedHat, to install GNOME desktop do: yum groupinstall "Server with GUI"
 ```    
-    yum install tigervnc*
-    ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
-    reboot
+yum install tigervnc*
+ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+reboot
 ```
 Log back in to the KVM host to setup VNC using the following commands:
 ```
-    vncserver
-    vncpasswd
+vncserver
+vncpasswd
 ```
 Prepare the Host KVM
 --------------------
 
 Login to the Host KVM as root and execute the following commands.
 ```
-    cd /opt
-    git clone https://github.com/fctoibm/ocpkvm4.2.git
-    cd /opt/ocpkvm4.2
+cd /opt
+git clone https://github.com/fctoibm/ocpkvm4.2.git
+cd /opt/ocpkvm4.2
 ```
 Edit the [vars.yaml](./vars.yaml) file with the IP addresses that will be
 assigned to the masters/workers/boostrap. The IP addresses need to be
@@ -103,14 +103,14 @@ Run the ansible playbooks
 
 Run the playbook to setup the helper node
 ```
-    ansible-playbook -e @vars.yaml  play.yaml
+ansible-playbook -e @vars.yaml  play.yaml
 ```
 ### If the ansible playbook fails
 
 If the ansible scripts fail, execute the following script to clean the
 environment:
 ```
-    ansible-playbook -e @vars.yaml  clean.yaml
+ansible-playbook -e @vars.yaml  clean.yaml
 ```
 After it is done, ssh into the helper node, and run the following
 command to get info about the environment and some installation help:
@@ -183,8 +183,8 @@ PXE boot to be completed on each VM. When the PXE boot is done on the
 worker-2 node, ssh to the helper node. Execute the following command to
 check that the bootstrap node is finished with installation.
 ```
-    cd /opt/ocp4
-    openshift-install wait-for bootstrap-complete --log-level debug
+cd /opt/ocp4
+openshift-install wait-for bootstrap-complete --log-level debug
 ```
 The following messages will be displayed when the bootstrap completes
 installation:
@@ -232,12 +232,12 @@ openshift-install wait-for install-complete
 When the installation is completed, messages similar to the following
 will be displayed:
 ```
-    INFO Waiting up to 30m0s for the cluster at https://api.test.os.fisc.lab:6443 to initialize...
-    INFO Waiting up to 10m0s for the openshift-console route to be created...
-    INFO Install complete!                            
-    INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/opt/ocp4/auth/kubeconfig'
-    INFO Access the OpenShift web-console here: https://console-openshift-console.apps.test.os.fisc.lab
-    INFO Login to the console with user: kubeadmin, password: ###-????-@@@@-****
+INFO Waiting up to 30m0s for the cluster at https://api.test.os.fisc.lab:6443 to initialize...
+INFO Waiting up to 10m0s for the openshift-console route to be created...
+INFO Install complete!                            
+INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/opt/ocp4/auth/kubeconfig'
+INFO Access the OpenShift web-console here: https://console-openshift-console.apps.test.os.fisc.lab
+INFO Login to the console with user: kubeadmin, password: ###-????-@@@@-****
 ```
 > Make note of the OpenShift web-console URL, login user id and password.
 
@@ -246,8 +246,8 @@ Update IP tables on KVM Host to access OpenShift URL
 
 On KVM Host run the following commands:
 ```
-    iptables -I FORWARD -o openshift4 -d  <HELPER_NODE_IP> -j ACCEPT
-    iptables -t nat -I PREROUTING -p tcp --dport 443 -j DNAT --to <HELPER_NODE_IP>:443
+iptables -I FORWARD -o openshift4 -d  <HELPER_NODE_IP> -j ACCEPT
+iptables -t nat -I PREROUTING -p tcp --dport 443 -j DNAT --to <HELPER_NODE_IP>:443
 ```
 > Where, <HELPER_NODE_IP> is the IP address of the helper node
 
