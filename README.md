@@ -1,5 +1,5 @@
-Installing OCP 4.2 using KVM
-============================
+Installing OCP 4.2 with KVM
+===========================
 
 This Guide will get you up and running using KVM `libvirt`. This setup should
 work for both RedHat or Centos OS 7.X. You will need to deploy a bare-metal IBM
