@@ -64,6 +64,9 @@ sudo yum install python-pip gcc make openssl-devel python-devel
 sudo pip install --upgrade ansible
 ```
 > **NOTE:** For RedHat if you get error message that said "No package ansible available" when you execute the command "sudo yum install ansible",  execute "sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" and then execute "sudo yum install ansible".
+> **NOTE:**  If you get error message that said "No package python-pip available." when you execute the command "sudo yum install python-pip",  execute "curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" "python get-pip.py" and then execute "sudo yum install ansible".
+
+
 
 KVM will be used to create and manage virtual machines. The KVM command
 line tool is virt-install and the GUI tool is virt-manager. To use the
