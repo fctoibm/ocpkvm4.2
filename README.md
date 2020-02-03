@@ -69,7 +69,8 @@ KVM will be used to create and manage virtual machines. The KVM command
 line tool is virt-install and the GUI tool is virt-manager. To use the
 KVM GUI tool, install Gnome desktop and VNC.
 ```
-yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
+yum groupinstall "GNOME Desktop" "Graphical Administration Tools" --setopt=group_package_types=mandatory,default,optional
+
 ```    
 > **NOTE:** For RedHat, to install GNOME desktop do: yum groupinstall "Server with GUI"
 ```    
