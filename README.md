@@ -147,7 +147,7 @@ installed in the following order:
 
 Logon to the helper node. Launch `virt-manager`
 
-![virt-mgr](images/virt-mgr.png)
+[![virt-mgr](images/virt-mgr.png)](https://youtu.be/2SkIdhBi0OI)
 
 Each of the VM needs to be PXE bootable (Pre-Boot Execution Environment).
 The result is an IP address assigned to the VM and the OS installed.
@@ -167,7 +167,7 @@ will be displayed. Select option "iPXE"
 
 The PXE Boot Menu will be displayed:
 
-[![pxe](images/pxe.png)](https://youtu.be/2SkIdhBi0OI)
+![pxe](images/pxe.png)
 
 - If the VM is the bootstrap VM, select option 1) Install Bootstrap Mode.
 - If the VM is the master-x VM, select option 2) Install Master Node and
